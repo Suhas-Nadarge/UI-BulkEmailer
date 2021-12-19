@@ -66,11 +66,11 @@ def login():
     if current_user.is_authenticated:
             return jsonify({'status':'fail','massage':'user is already logged in'}) ,500
     
-    email = data['email']
+    username = data['username']
     password = data['password']
     
-    # filter out user from log in email passed
-    user = User.query.filter_by(email=data['email']).first()
+    # filter out user from log in username passed
+    user = User.query.filter_by(username=data['username']).first()
     
     # check if user exists and password is correct
     if user and bcrypt.check_password_hash(user.password,password):

@@ -9,7 +9,7 @@ def send_email(subject,content,recipients,username):
 
 
     with mail.connect() as conn:
-        for user.strip() in recipients:
+        for user in recipients:
 
             html_message = content
             subject = subject
