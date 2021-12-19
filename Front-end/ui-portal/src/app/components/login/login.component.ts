@@ -40,12 +40,13 @@ export class LoginComponent implements OnInit {
       this.toastr.successToastr('Logged in successfully!', 'Success',{toastTimeout:6000});
       } else {
         this.showLoginError = true;
+        this.toastr.errorToastr('Please enter valid credentials.')
         // this.router.navigate(['/home'])
       }
       console.log(data);
     },
     (err: any)=>{
-      this.toastr.errorToastr(err['error']['message'] ? err['error']['message'] : 'Something went wrong!', 'Error',{toastTimeout:6000});
+      this.toastr.errorToastr(err['error']['message'] ? err['error']['message'] : 'Please enter valid credentials!', 'Error',{toastTimeout:6000});
     // this.router.navigate(['/home'])
     });
 
